@@ -10,7 +10,7 @@ char removeToMakePal(string given)
     int i, j, k;
     for(i = 0; i < given.length(); ++i)
     {
-        for(j = given.length() - 1; j >= 0; --j)
+        for(j = 0; j < given.length(); ++j)
         {
             if(i != j)
             {
