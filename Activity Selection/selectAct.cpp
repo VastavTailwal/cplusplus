@@ -8,7 +8,24 @@ class Act
     char act;
     unsigned short int start;
     unsigned short int end;
+
+    friend istream& operator >>(istream&, Act&);
+    friend ostream& operator >>(ostream&, Act&);
 };
+
+
+istream& operator >>(istream& in, Act& Activity)
+{
+    in>>Activity.act>>Activity.start>>Activity.end;
+    return in;
+}
+
+
+ostream& operator <<(ostream& out, Act& Activity)
+{
+    out<<Activity.act;
+    return out;
+}
 
 
 void selectActivity(Act activities[], const unsigned short int size)
@@ -21,7 +38,7 @@ void selectActivity(Act activities[], const unsigned short int size)
         if(activities[i].end <= activities[j].start)
         {
             i = j;
-            cout<<activities[i].act<<"\t";
+            cout<<activities[i]<<"\t";
         }
         else
         {
@@ -39,7 +56,7 @@ int main()
     Act activities[n];
     for(int i = 0; i < n; ++i)
     {
-        cin>>activities[i].act>>activities[i].start>>activities[i].end;
+        cin>>activities[i];
     }
     selectActivity(activities, n);
     return 0;
