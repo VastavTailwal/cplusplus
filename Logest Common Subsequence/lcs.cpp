@@ -5,11 +5,11 @@ using namespace std;
 
 const string string1 = "ABKAKEJBKA";
 const string string2 = "KJKASB";
-int len1 = string1.length();
-int len2 = string2.length();
+const int m = string1.length();
+const int n = string2.length();
 
 
-void printLCS(int temp[][], char dirtemp[][], string str1, int i, int j)
+void printLCS(int temp[][7], char dirtemp[][7], const string str1, int i, int j)
 {
     if(i == 0 || j == 0)
     {
@@ -30,12 +30,11 @@ void printLCS(int temp[][], char dirtemp[][], string str1, int i, int j)
     }
 }
 
-int longestCommonSub(string str1, string str2)
+
+void longestCommonSub(const string str1, const string str2)
 {
-    int m = str1.length();
-    int n = str2.length();
-    int dp[m + 1][n + 1];
-    char dir[m + 1][n + 1];
+    int dp[11][7];
+    char dir[11][7];
     for(int i = 0; i <= m; ++i)
     {
         dp[i][0] = 0;
